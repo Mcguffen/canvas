@@ -1,9 +1,0 @@
-body{
-    /* 默认是8px */
-    margin: 0;
-}
-#x{
-    background: #ddd;
-    height: 100vh;
-    position: relative;
-}

@@ -1,8 +1,0 @@
-body{
-    默认是8px
-    margin: 0;
-}
-#canvas{
-    background: #ddd;
-    height: 100vh;
-}
