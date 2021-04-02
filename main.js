@@ -18,7 +18,7 @@ function drawCircle(x, y, radius){
 // 划线
 function drawLine(x1, y1, x2, y2){
     context.beginPath()
-    context.strokeStyle = 'red'
+    context.strokeStyle = 'black'
     context.lineWidth = 5
     context.moveTo(x1, y1) // 起点
     context.lineTo(x2,y2) // 终点
