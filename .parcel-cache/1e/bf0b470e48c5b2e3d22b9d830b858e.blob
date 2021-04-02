@@ -1,0 +1,10 @@
+// 按下鼠标
+document.onmousedown = function(e){
+    console.log(e)
+}
+
+// 动鼠标
+document.onmousemove = function(){
+    console
+}
+// 鼠标松开

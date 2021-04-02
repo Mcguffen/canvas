@@ -1,0 +1,9 @@
+body{
+    m
+    margin: 0;
+}
+#canvas{
+    background: #ddd;
+    height: 100vh;
+}
+/*# sourceMappingURL=index.HASH_REF_8a6e625a6f078c797be837fbf556d9ac.css.map */

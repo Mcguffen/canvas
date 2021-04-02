@@ -1,0 +1,3 @@
+document.onmousedown = function(){
+    console.log(e)
+}

@@ -1,4 +1,10 @@
 body{
+    /* 默认是8px */
+    margin: 0;
+}
+#canvas{
     background: #ddd;
+    height: 100vh;
+    position: relative;
 }
 /*# sourceMappingURL=index.f556d9ac.css.map */

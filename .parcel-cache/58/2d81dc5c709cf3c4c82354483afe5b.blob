@@ -1,0 +1,5 @@
+
+#canvas{
+    background: #ddd;
+    height: 100vh;
+}

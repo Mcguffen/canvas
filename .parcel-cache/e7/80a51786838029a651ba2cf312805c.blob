@@ -1,0 +1,19 @@
+var div = document.getElementById('canvas')
+// 按下鼠标
+div.onmousedown = function(a){
+    var x = a.clientX
+    var y = a.clientY
+    var divA = document.createElement('div')
+    divA.style = "width: 5px; height: 5px;" + "background: black; border=radius:3px;"
+    div.appendChild(divA)
+}
+
+// 动鼠标
+div.onmousemove = function(y){
+    console.log(1)
+}
+
+// 鼠标松开
+div.onmouseup = function(z){
+    console.log(y)
+}
