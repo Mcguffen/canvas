@@ -1,68 +1,98 @@
-var x = document.getElementById('x')
-var context = x.getContext('2d')
+var x = document.getElementById('x');
+var context = x.getContext('2d');
 
-// context.fillStyle = 'red'
-// context.fillRect(0, 0, 100, 100)
-// context.strokeStyle = 'blue'
-// context.strokeRect(0, 0, 100, 100)
+autoSetCanvasSize(x)
 
-// drawCircle(150,150,10)
-// 画圆
-function drawCircle(x, y, radius){
-    context.beginPath()
-    context.fillStyle = 'black'
-    context.arc(x, y, radius, 0, Math.PI*2)
-    context.fill()
+listenToMouse(x)
+
+
+var eraserEnabled = false
+eraser.onclick = function() {
+  eraserEnabled =true
+  actions.className = 'actions x'
+  
+}
+brush.onclick = function(){
+  eraserEnabled = false
+  actions.className = 'actions'
 }
 
-// 划线
-function drawLine(x1, y1, x2, y2){
-    context.beginPath()
-    context.strokeStyle = 'black'
-    context.lineWidth = 5
-    context.moveTo(x1, y1) // 起点
-    context.lineTo(x2,y2) // 终点
-    context.stroke() //
-    context.closePath() // 结束
+
+/******/
+
+function autoSetCanvasSize(canvas) {
+  setCanvasSize()
+
+  window.onresize = function() {
+    setCanvasSize()
+  }
+
+  function setCanvasSize() {
+    var pageWidth = document.documentElement.clientWidth
+    var pageHeight = document.documentElement.clientHeight
+
+    canvas.width = pageWidth
+    canvas.height = pageHeight
+  }
 }
 
-var painting = false
-var lastPoint = {
+function drawCircle(x, y, radius) {
+  context.beginPath()
+  context.fillStyle = 'black'
+  context.arc(x, y, radius, 0, Math.PI * 2);
+  context.fill()
+}
+
+function drawLine(x1, y1, x2, y2) {
+  context.beginPath();
+  context.strokeStyle = 'black'
+  context.moveTo(x1, y1) // 起点
+  context.lineWidth = 5
+  context.lineTo(x2, y2) // 终点
+  context.stroke()
+  context.closePath()
+}
+
+function listenToMouse(canvas) {
+
+
+  var using = false
+  var lastPoint = {
     x: undefined,
     y: undefined
-}
-// 按下鼠标
-x.onmousedown = function(a){
-    painting = true
-    var x = a.clientX
-    var y = a.clientY
-    lastPoint = {
+  }
+  canvas.onmousedown = function(aaa) {
+    var x = aaa.clientX
+    var y = aaa.clientY
+    using = true
+    if (eraserEnabled) {
+      context.clearRect(x - 5, y - 5, 10, 10)
+    } else {
+      lastPoint = {
         "x": x,
         "y": y
+      }
     }
-    drawCircle(x,y,1)
-    drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
-    lastPoint = newPoint
-}
+  }
+  canvas.onmousemove = function(aaa) {
+    var x = aaa.clientX
+    var y = aaa.clientY
 
-// 动鼠标
-x.onmousemove = function(a){
-    if(painting){
-        var x = a.clientX
-        var y = a.clientY
-        var newPoint = {
-            "x": x,
-            "y": y
-        }
-        drawCircle(x,y,1)
-        drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
-        lastPoint = newPoint
-    }else{
+    if (!using) {return}
 
+    if (eraserEnabled) {
+      context.clearRect(x - 5, y - 5, 10, 10)
+    } else {
+      var newPoint = {
+        "x": x,
+        "y": y
+      }
+      drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
+      lastPoint = newPoint
     }
-}
 
-// 鼠标松开
-x.onmouseup = function(z){
-    painting = false
+  }
+  canvas.onmouseup = function(aaa) {
+    using = false
+  }
 }

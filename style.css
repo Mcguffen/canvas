@@ -1,10 +1,27 @@
-body{
-    /* 默认是8px */
-    margin: 0px;
-}
 #x{
-    background: #ddd;
-    /* height: 100vh; */
-    /* position: relative; */
-    display: block;
+  background: #ddd;
+  display: block;
+}
+
+body{
+  margin: 0px;
+}
+
+html{
+}
+
+.actions{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+.actions > #brush{
+  display: none;
+}
+
+.actions.x > #brush{
+  display: inline-block;
+}
+.actions.x > #eraser{
+  display: none
 }
