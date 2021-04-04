@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>画板</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="/index.HASH_REF_8a6e625a6f078c797be837fbf556d9ac.css">
 </head>
 <body>
     <canvas id="canvas" width="300" height="300"></canvas>
@@ -34,6 +33,6 @@
         </ul>
     </div>
 </body>
-<script src="./main.js"></script>
+<script src="/index.HASH_REF_ba76236dc15f498c73ded0e523420cfa.js"></script>
 <script src="//at.alicdn.com/t/font_607277_m4bbq842u51att9.js"></script>
 </html>
